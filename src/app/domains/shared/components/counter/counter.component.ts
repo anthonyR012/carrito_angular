@@ -7,6 +7,7 @@ import {
   AfterViewInit,
   OnDestroy,
   input,
+  model,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -19,7 +20,7 @@ export class CounterComponent
   implements OnChanges, OnInit, AfterViewInit, OnDestroy
 {
   readonly $duration = input.required<number>();
-  readonly $message = input.required<string>();
+  readonly $message = model.required<string>();
   counter = signal(0);
   counterRef: number | undefined;
 
@@ -72,5 +73,9 @@ export class CounterComponent
   doSomething() {
     console.log('change duration');
     // async
+  }
+
+  setMessage() {
+    this.$message.set('Hola nuevo mensaje');
   }
 }
