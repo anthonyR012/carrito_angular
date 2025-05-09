@@ -1,12 +1,12 @@
 import {
   Component,
-  Input,
   SimpleChanges,
   signal,
   OnChanges,
   OnInit,
   AfterViewInit,
   OnDestroy,
+  input,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -18,8 +18,8 @@ import { CommonModule } from '@angular/common';
 export class CounterComponent
   implements OnChanges, OnInit, AfterViewInit, OnDestroy
 {
-  @Input({ required: true }) duration = 0;
-  @Input({ required: true }) message = '';
+  readonly $duration = input.required<number>();
+  readonly $message = input.required<string>();
   counter = signal(0);
   counterRef: number | undefined;
 
@@ -48,8 +48,8 @@ export class CounterComponent
     // async, then, subs
     console.log('ngOnInit');
     console.log('-'.repeat(10));
-    console.log('duration =>', this.duration);
-    console.log('message =>', this.message);
+    console.log('duration =>', this.$duration());
+    console.log('message =>', this.$message());
     this.counterRef = window.setInterval(() => {
       console.log('run interval');
       this.counter.update((statePrev) => statePrev + 1);

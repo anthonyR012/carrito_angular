@@ -9,7 +9,7 @@
   <p class="text-base">
     Numero de clientes
     @if (duration() > 0) {
-      <app-counter [duration]="duration()" [message]="message()" />
+      <app-counter [$duration]="duration()" [$message]="message()" />
     }
   </p>
   <div>
