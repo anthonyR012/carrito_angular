@@ -6,9 +6,7 @@
     delectus numquam aliquid itaque nulla. Alias fugiat est, voluptatem commodi
     soluta, ad et eveniet odit rem perferendis porro, quidem iste.
   </p>
-  <p>
-    Parent message: {{ message() }}
-  </p>
+  <p>Parent message: {{ message() }}</p>
   <p class="text-base">
     Numero de clientes
     @if (duration() > 0) {
@@ -19,8 +17,18 @@
     <app-wave-audio audioUrl="assets/audio.mp3" />
   </div>
   <p>with Init: {{ $signalWithInit() }}</p>
-  <button class="bg-blue-500 text-white px-4 py-2 rounded-md" (click)="emitWithInit()">emit with init</button>
+  <button
+    class="bg-blue-500 text-white px-4 py-2 rounded-md"
+    (click)="emitWithInit()"
+  >
+    emit with init
+  </button>
 
   <p>without Init: {{ $signalWithoutInit() }}</p>
-  <button class="bg-blue-500 text-white px-4 py-2 rounded-md" (click)="emitWithoutInit()">emit without init</button>
+  <button
+    class="bg-blue-500 text-white px-4 py-2 rounded-md"
+    (click)="emitWithoutInit()"
+  >
+    emit without init
+  </button>
 </div>
